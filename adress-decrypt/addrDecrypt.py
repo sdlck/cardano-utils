@@ -16,7 +16,7 @@ cborEnt = cbor.dumps(bytes(entropy))
 seed = blake2b(cborEnt, digest_size=32)
 cborSeed = cbor.dumps(seed.digest())
 
-for i in range(5, 1000):
+for i in range(1, 1000):
     buf = hmac.new(cborSeed, b'Root Seed Chain %d' % i, sha512).digest()
     buf_l, buf_r = buf[:32], buf[32:]
     if sha512(buf_l).digest()[31] & 32 == 0:

@@ -23,7 +23,6 @@ for i in range(1, 1000):
         bip32 = ed25519.SigningKey(buf_l)
         break
 
-
 xpub = bip32.vk_s + buf_r
 
 decodedAddr = b58decode(addr)

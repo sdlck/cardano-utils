@@ -19,9 +19,10 @@ cborSeed = cbor.dumps(seed.digest())
 for i in range(5, 1000):
     buf = hmac.new(cborSeed, b'Root Seed Chain %d' % i, sha512).digest()
     buf_l, buf_r = buf[:32], buf[32:]
-    bip32 = ed25519.SigningKey(buf_l)
-    if bip32:
+    if sha512(buf_l).digest()[31] & 32 == 0:
+        bip32 = ed25519.SigningKey(buf_l)
         break
+
 
 xpub = bip32.vk_s + buf_r
 

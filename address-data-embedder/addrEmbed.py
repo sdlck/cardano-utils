@@ -73,7 +73,14 @@ address = cbor.dumps(address)
 crc = crc32(address)
 taggedAddress = cbor.Tag(24, address)
 cwid = cbor.dumps([taggedAddress, crc])
+size = len(cwid)
 cwid = b58encode(cwid)
+
+a = 0.155381
+b = 0.000043946
+estFees = a + b * size
 
 print("Mnemonic:", words)
 print("Address:", cwid.decode())
+print("Address Size (bytes):", size)
+print("Est. fees:", estFees, "ADA")

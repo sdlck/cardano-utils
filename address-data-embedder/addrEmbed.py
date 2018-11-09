@@ -5,9 +5,9 @@ from base64 import standard_b64encode
 from base58 import b58encode
 from sys import argv
 import os.path
-import cbor.dumps
-import hmac.new
-import ed25519.SigningKey
+import cbor
+import hmac
+import ed25519
 
 def requestFile():
     fpath = input("Enter path to file: ")

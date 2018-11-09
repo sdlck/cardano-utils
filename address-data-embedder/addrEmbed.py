@@ -49,6 +49,7 @@ for i in range(1, 1000):
     if root_xpriv[31] & 32 == 0:
         bip32 = ed25519.SigningKey(buf_l)
         break
+
 xpub = bip32.vk_s + buf_r
 
 addrType = 0

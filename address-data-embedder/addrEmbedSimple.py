@@ -27,11 +27,9 @@ def requestData():
     return data
 
 data = cbor.dumps(requestData())
-addrAttributes = {1: data}
-abstractHash = os.urandom(28)
 address = [
         b'0000000000000000000000000000',
-        addrAttributes,
+        {1: data},
         0
         ]
 address = cbor.dumps(address)

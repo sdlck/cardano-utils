@@ -1,7 +1,6 @@
 from mnemonic import Mnemonic
 from hashlib import blake2b, sha512, sha3_256
 from binascii import crc32
-from base64 import standard_b64encode
 from base58 import b58encode
 from sys import argv
 import os.path

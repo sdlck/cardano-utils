@@ -76,4 +76,4 @@ cwid = cbor.dumps([taggedAddress, crc])
 cwid = b58encode(cwid)
 
 print("Mnemonic:", words)
-print("Address: ", cwid.decode())
+print("Address:", cwid.decode())

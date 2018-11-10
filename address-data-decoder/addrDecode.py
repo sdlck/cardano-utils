@@ -7,7 +7,6 @@ import filetype
 
 addr = argv[1]
 d = enchant.Dict('en_US')
-unpackedAddr = cbor.loads(cbor.loads(b58decode(addr))[0].value)
 
 def lookForText(data):
     try:

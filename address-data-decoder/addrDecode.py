@@ -52,7 +52,7 @@ def searchAddr(addr):
 
     if attrFile != False:
         print("\n%s file found in attributes:\n" % attrFile.mime)
-        print("Writing to %s.%s" % (addr[:6], attrFile.extension))
+        print("Writing to %s.%s\n" % (addr[:6], attrFile.extension))
         with open('%s.%s' % (addr[:6], attrFile.extension), 'wb') as f:
             f.write(addrAttributes)
         attrFile = True

@@ -18,7 +18,7 @@ def requestData():
     ans = input("Embed text or file?: ").lower()
     if ans == 'text' or ans == 't':
         data = input("Enter text to embed: ")
-        data = bytes(data.encode('utf-8'))
+        data = data.encode()
     elif ans == 'file' or ans == 'f':
         data = requestFile()
     else:

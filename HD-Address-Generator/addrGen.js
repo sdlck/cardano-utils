@@ -12,7 +12,6 @@ const EdDsa = require('elliptic-cardano').eddsaVariant
 const ec = new EdDsa('ed25519')
 const chacha20 = require('@stablelib/chacha20poly1305')
 
-
 // Get mnemonic words from input
 words = process.argv[2]
 console.log("\nMnemonic:", words)
@@ -190,7 +189,6 @@ addrRoot = [
         [ addrType, child_xpub ],
         addrAttributes
 ]
-
 cborAddrRoot = cbor.encode(addrRoot)
 sha3AddrRoot = sha3_256(cborAddrRoot)
 abstractHash = blake.blake2b(Buffer.from(sha3AddrRoot, 'hex'), null, 28)
@@ -199,10 +197,8 @@ address = cbor.encode([
         addrAttributes,
         addrType
 ])
-
 checksum = CRC.crc32(address)
 taggedAddr = new cbor.Tagged(24, address)
 address = cbor.encode([taggedAddr, checksum])
 address = bs58.encode(address)
-
 console.log('\nHD Address:', address, "\n")

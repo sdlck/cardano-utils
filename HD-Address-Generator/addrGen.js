@@ -1,3 +1,8 @@
+// Code copied and thrown together from the following sources:
+// https://github.com/vacuumlabs/adalite/blob/4de87a15e9a768b9ef960779ccd46095dfcc9090/wallet/address.js
+// https://github.com/ilap/cwag/blob/master/main.js
+// https://github.com/safeada/python-cardano/blob/master/cardano/address.py
+
 const bigNumber = require('bignumber.js')
 const bs58 = require('bs58')
 const bip39 = require('bip39')
@@ -71,7 +76,7 @@ CWID = bs58.encode(CWID)
 console.log("\nCWID:", CWID)
 
 // Define required functions 
-// from https://github.com/vacuumlabs/adalite/blob/4de87a15e9a768b9ef960779ccd46095dfcc9090/wallet/address.js
+// Copied from https://github.com/vacuumlabs/adalite/blob/4de87a15e9a768b9ef960779ccd46095dfcc9090/wallet/address.js
 function add256NoCarry(b1, b2) {
   let result = ''
 

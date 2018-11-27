@@ -28,7 +28,7 @@ seed = blake.blake2b(serializedEnt, null, 32)
 serializedSeed = cbor.encode(Buffer.from(seed))
 
 // Derive root keys
-for (const i of Array(10).keys()) {
+for (const i of Array(1000).keys()) {
         phrase = "Root Seed Chain " + (i + 1)
         hmac = crypto.createHmac('sha512', serializedSeed)
         hmac.update(phrase)
@@ -168,7 +168,6 @@ function deriveChildPrivate(xpriv, path) {
         return xpriv
 }
 
-
 // Set derivation path, derive child keys
 // Derivation path is manually set to derive first HD address
 derivationPath = [0x80000000, 0x80000000]
@@ -194,8 +193,8 @@ addrRoot = [
         [ addrType, child_xpub ],
         addrAttributes
 ]
-cborAddrRoot = cbor.encode(addrRoot)
-sha3AddrRoot = sha3_256(cborAddrRoot)
+serializedAddrRoot = cbor.encode(addrRoot)
+sha3AddrRoot = sha3_256(serializedAddrRoot)
 abstractHash = blake.blake2b(Buffer.from(sha3AddrRoot, 'hex'), null, 28)
 address = cbor.encode([
         Buffer.from(abstractHash),
